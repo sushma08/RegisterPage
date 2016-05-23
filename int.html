@@ -12,7 +12,7 @@
 				$('#user_name').on('input', function() {
 					var input=$(this);
 					var is_name=input.val();
-					if(is_name){input.removeClass("invalid").addClass("valid");}
+					if(is_name.match(/^[a-zA-Z]+$/)){input.removeClass("invalid").addClass("valid");}
 					else{input.removeClass("valid").addClass("invalid");}
 				});
 				
@@ -40,64 +40,65 @@
 					else{input.removeClass("valid").addClass("invalid");}
 				});
 		
-			$("#user_submit input").click(function(event){
-				var form_data=$("#user").serializeArray();
-				var error_free=true;
-				for (var input in form_data){
-					var element=$("#user_"+form_data[input]['name']);
-					var valid=element.hasClass("valid");
-					var error_element=$("span", element.parent());
-					if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false;}
-					else{error_element.removeClass("error_show").addClass("error");}
-				}
-				if (!error_free){
-					event.preventDefault(); 
-				}
-				else{
-					alert('No errors: Form will be submitted');
-				}
-			});
+				$("#user_submit button").click(function(event){
+					var form_data=$("#user").serializeArray();
+					var error_free=true;
+					for (var input in form_data){
+						var element=$("#user_"+form_data[input]['name']);
+						var valid=element.hasClass("valid");
+						var error_element=$("span", element.parent());
+						if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false;}
+						else{error_element.removeClass("error_show").addClass("error");}
+					}
+					if (!error_free){
+						event.preventDefault(); 
+					}
+					else{
+						alert('No errors: Form will be submitted');
+					}
+				});
 		});
 	</script>
 
     <body>
 		<div class = "container"> 
 			<div>
-              <h1><div style="color:#55920e;text-align:center;text-shadow:2px 2px 5px;">GreenSprout</div></h1></a>
+				<h1><div style="color:#55920e;text-align:center;text-shadow:2px 2px 5px;">GreenSprout</div></h1></a>
 			</div>
 			<div class="backImg"></div>
 			<div class="form">
 				<form id="user" method="post" action="">
-				Name:<input type="text" id="user_name" name="name" required>
-				Email:<input type="text" id="user_email" name="email" required>
-				Phone:<input type="text" id="user_phone" name="phone" required>
-				Event:<select id="user_event1" name="event1">
-					<option value="educational">Educational</option>
-					<option value="fun">Fun</option>
-					<option value="sports">Sports</option>
-				</select>
-				Event Schdule:<select id="user_event2" name="event2">
-					<option value="23">23 May 2016</option>
-					<option value="28">28 May 2016</option>
-					<option value="1">1 June 2016</option>
-				</select>
-				Number of participants: </br>
-				<input id="user_nfp" style="width:100%;padding:16px 20px;border:none;border-radius:4px;background-color:#ffffff;margin:4px;box-sizing:border-box;" 
-				type="number" name="quantity" min="1" max="10">
-				<input type="submit" id="user_submit" value="Register">
+					Name:<input type="text" id="user_name" name="name" required>
+					Email:<input type="email" id="user_email" name="email" required>
+					Phone:<input type="number" id="user_phone" name="phone" required>
+					Event:<select id="user_event1" name="event1">
+							<option value="educational">Educational</option>
+							<option value="fun">Fun</option>
+							<option value="sports">Sports</option>
+						</select>
+					Event Schdule:<select id="user_event2" name="event2">
+									<option value="23">23 May 2016</option>
+									<option value="28">28 May 2016</option>
+									<option value="1">1 June 2016</option>
+								</select>
+					Number of participants:
+						<input id="user_nfp" type="number" name="quantity" min="1" max="10" required>
+					<input type="submit" id="user_submit" value="Register">
 				</form>
 			</div>
 			<div id="map"></div>
 		</div>
-	<script>
-      function initMap() {
-        var mapDiv = document.getElementById('map');
-        var map = new google.maps.Map(mapDiv, {
-          center: {lat: 44.540, lng: -78.546},
-          zoom: 12
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAC7dAanvfTv47qoMUFYAEBR5kvRcRcA0I&callback=initMap" type="text/javascript" async defer></script>
+		<script>
+			function initMap() {
+				var mapDiv = document.getElementById('map');
+				var map = new google.maps.Map(mapDiv, {
+				center: {lat: 44.540, lng: -78.546},
+				zoom: 12
+				});
+			}
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAC7dAanvfTv47qoMUFYAEBR5kvRcRcA0I&callback=initMap" 
+			type="text/javascript" async defer>
+		</script>
     </body>
 </html>
