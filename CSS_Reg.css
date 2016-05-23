@@ -1,0 +1,94 @@
+
+div.container
+{
+	width:100%;
+	display: inline-block;
+}
+
+
+div.backImg{
+	background: url("comic-kids.jpg") no-repeat;
+	height: 60%;
+	width:30%;
+	float:left;
+	background-size: 100% 100%;
+	
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	box-shadow: 0 9px #999;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div.form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+	margin: 0px 30px;
+	float:left;
+    padding: 20px;
+	width: 30%;
+	max-height: 70%;
+}
+
+#map {
+		align: right;
+		margin-right: 20px;
+        height: 60%;
+		width: 30%;
+}
+
+.error{
+		display: none;
+		margin-left: 10px;
+}		
+		
+.error_show{
+			color: red;
+			margin-left: 10px;
+}
+
+input.invalid, textarea.invalid{
+	border: 2px solid red;
+}
+		
+input.valid, textarea.valid{
+	border: 2px solid green;
+}
+
+select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+	box-sizing: border-box;
+}
+
+nfp{
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
